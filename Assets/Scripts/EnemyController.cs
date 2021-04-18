@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    enum EnemyType { Left, Right }
+    private enum EnemyType { Left, Right }
 
     private EnemyType enemyType;
     private float speed = 5f;
@@ -13,6 +13,12 @@ public class EnemyController : MonoBehaviour
     private float force = 10f;
 
     public static int enemyCount = 0;
+
+    public delegate void PlayerDeathDelegate();
+    public static event PlayerDeathDelegate PlayerDeath;
+
+    public delegate void ScoreDelegate(int score);
+    public static event ScoreDelegate ScoreAdd;
 
     void Awake()
     {
@@ -49,13 +55,27 @@ public class EnemyController : MonoBehaviour
         {
             if ((collision.gameObject.transform.position.y - transform.position.y) > heightDifference)
             {
-                speed = 0;
+                // Enemy durmuþsa yeniden skor eklemeyi önler.
+                if (speed != 0)
+                {
+                    speed = 0;
+
+                    if (ScoreAdd != null)
+                    {
+                        ScoreAdd(5);
+                    }
+                }
             }
             else
             {
                 Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
                 Vector3 awayFromEnemy = collision.gameObject.transform.position - transform.position;
                 playerRb.AddForce(awayFromEnemy * force, ForceMode.Impulse);
+
+                if (PlayerDeath != null)
+                {
+                    PlayerDeath();
+                }
             }
         }
     }

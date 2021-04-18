@@ -16,9 +16,12 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int randomIndex = Random.Range(0, spawnPositions.Length);
-        Vector3 spawnPos = spawnPositions[randomIndex] + new Vector3(0, EnemyController.enemyCount, 0);
+        if (GameManager.GetInstance().gameState == GameManager.GameState.Playing && EnemyController.enemyCount < 5)
+        {
+            int randomIndex = Random.Range(0, spawnPositions.Length);
+            Vector3 spawnPos = spawnPositions[randomIndex] + new Vector3(0, EnemyController.enemyCount, 0);
 
-        Instantiate(enemy, spawnPos, Quaternion.identity);
+            Instantiate(enemy, spawnPos, Quaternion.identity);
+        }
     }
 }
