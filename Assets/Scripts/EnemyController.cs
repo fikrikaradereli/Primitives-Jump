@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : MonoBehaviour
 {
     private enum EnemyType { Left, Right }
-
     private EnemyType enemyType;
-    private float speed = 5f;
-    private float heightDifference = 0.9f;
-    private float startingPos = 6f;
-    private float force = 10f;
 
-    public static int enemyCount = 0;
+    public float Speed { get; private set; } = 5f;
+    private readonly float heightDifference = 0.95f;
+    private readonly float startingPos = 6f;
+    private readonly float force = 10f;
 
-    public delegate void PlayerDeathDelegate();
-    public static event PlayerDeathDelegate PlayerDeath;
 
-    public delegate void ScoreDelegate(int score);
-    public static event ScoreDelegate ScoreAdd;
+    public static event Action PlayerDeath;
+    public static event Action<int> ScoreAdd;
 
     void Awake()
     {
@@ -31,21 +28,18 @@ public class EnemyController : MonoBehaviour
         {
             enemyType = EnemyType.Left;
         }
-
-        enemyCount++;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (enemyType == EnemyType.Right)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
 
         if (enemyType == EnemyType.Left)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            transform.Translate(Vector3.right * Time.deltaTime * Speed);
         }
     }
 
@@ -56,9 +50,9 @@ public class EnemyController : MonoBehaviour
             if ((collision.gameObject.transform.position.y - transform.position.y) > heightDifference)
             {
                 // Enemy durmuþsa yeniden skor eklemeyi önler.
-                if (speed != 0)
+                if (Speed != 0)
                 {
-                    speed = 0;
+                    Speed = 0;
 
                     if (ScoreAdd != null)
                     {

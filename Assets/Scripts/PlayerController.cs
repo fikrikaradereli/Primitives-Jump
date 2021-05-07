@@ -5,20 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    private float jumpForce = 5f;
+    private readonly float jumpForce = 5f;
     [SerializeField]
     private bool isOnGround = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        // For mobile input
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && isOnGround && GameManager.Instance.CurrentGameState == GameState.RUNNING)
+
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && GameManager.Instance.CurrentGameState == GameState.RUNNING)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
