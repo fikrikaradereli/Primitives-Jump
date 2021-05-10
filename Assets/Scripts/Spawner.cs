@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour
             if (lastEnemy.GetComponent<EnemyController>().Speed == 0)
             {
                 LevelSuccessful?.Invoke();
+                CancelInvoke(nameof(SpawnEnemy));
             }
         }
     }

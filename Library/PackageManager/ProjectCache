@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637549461776423843
-    m_Hash: 3060289241
+      ticks: 637561306442752898
+    m_Hash: 2558731602
   m_LockFileStatus:
     m_FilePath: C:/Users/Fikri/Unity Projects/Primitives-Jump/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637549461803035448
-    m_Hash: 2369231181
+      ticks: 637561306442752898
+    m_Hash: 2476487824
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -110,6 +110,7 @@ m_PackageAssets:
         - 1.3.7
         - 1.3.8
         - 1.3.9
+        - 1.5.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -122,6 +123,7 @@ m_PackageAssets:
         - 2.1.0-preview.6
         compatible:
         - 1.3.9
+        - 1.5.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -924,6 +926,7 @@ m_PackageAssets:
         - 1.4.5
         - 1.4.6
         - 1.4.7
+        - 1.4.8
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -935,10 +938,13 @@ m_PackageAssets:
         - 1.5.1-pre.3
         - 1.5.2
         - 1.5.4
+        - 1.5.5
         - 1.6.0-pre.1
         - 1.6.0-pre.3
+        - 1.6.0-pre.4
         compatible:
         - 1.4.7
+        - 1.4.8
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -950,9 +956,11 @@ m_PackageAssets:
         - 1.5.1-pre.3
         - 1.5.2
         - 1.5.4
+        - 1.5.5
         - 1.6.0-pre.1
         - 1.6.0-pre.3
-        verified: 1.4.7
+        - 1.6.0-pre.4
+        verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
         version: 1.0.0

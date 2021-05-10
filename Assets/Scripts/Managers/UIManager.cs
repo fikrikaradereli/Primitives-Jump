@@ -20,6 +20,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
+    [SerializeField]
+    private VictoryScreen victoryScreen;
+
     private void OnEnable()
     {
         GameManager.GameStateChange += HandleGameStateChange;
@@ -49,6 +52,7 @@ public class UIManager : Singleton<UIManager>
                 FailMenu();
                 break;
             case GameState.END:
+                EndScreen();
                 break;
             default:
                 break;
@@ -72,6 +76,11 @@ public class UIManager : Singleton<UIManager>
         menuTitle.text = "Game Over";
         successfulButton.gameObject.SetActive(false);
         failedButton.gameObject.SetActive(true);
+    }
+
+    private void EndScreen()
+    {
+        victoryScreen.gameObject.SetActive(true);
     }
 
     // Button click
