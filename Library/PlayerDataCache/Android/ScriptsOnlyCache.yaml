@@ -10,7 +10,6 @@ ScriptsOnlyBuild:
     - UIManager
     - VictoryScreen
     Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatConsoleWindow
     - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -20,8 +19,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -70,43 +67,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 12610}
+      Script: {instanceID: 1552}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 1660}
     - Class: 114
-      Script: {instanceID: 12974}
+      Script: {instanceID: 1934}
     - Class: 114
-      Script: {instanceID: 13402}
+      Script: {instanceID: 2374}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 2496}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 2548}
     - Class: 114
-      Script: {instanceID: 13780}
+      Script: {instanceID: 2754}
     - Class: 114
-      Script: {instanceID: 13896}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 13942}
+      Script: {instanceID: 2924}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 14156}
+      Script: {instanceID: 3142}
     - Class: 114
-      Script: {instanceID: 14168}
+      Script: {instanceID: 3154}
     - Class: 114
-      Script: {instanceID: 14344}
+      Script: {instanceID: 3342}
     - Class: 114
-      Script: {instanceID: 14370}
+      Script: {instanceID: 3374}
     - Class: 114
-      Script: {instanceID: 14372}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 3558}
     - Class: 114
-      Script: {instanceID: 14732}
+      Script: {instanceID: 3744}
     - Class: 114
-      Script: {instanceID: 14886}
+      Script: {instanceID: 3910}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128

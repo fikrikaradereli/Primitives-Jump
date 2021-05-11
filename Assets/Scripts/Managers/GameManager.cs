@@ -25,9 +25,17 @@ public class GameManager : Singleton<GameManager>
         levels = new List<Level>()
         {
             new Level("Level 1", 1)
-            //,
-            //new Level("Level 2", 2),
-            //new Level("Level 3", 3)
+            ////,
+            ////new Level("Level 2", 2),
+            ////new Level("Level 3", 3)
+            
+            //new Level("Level 1",7),
+            //new Level("Level 2",11),
+            //new Level("Level 3",15),
+            //new Level("Level 4",19),
+            //new Level("Level 5",23),
+            //new Level("Level 6",27),
+            //new Level("Level 7",31)
         };
 
         UpdateState(GameState.RUNNING);

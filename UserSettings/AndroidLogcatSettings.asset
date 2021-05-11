@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "b221d897",
         "name": "com.DefaultCompany.PrimitivesJump",
-        "processId": 24509,
+        "processId": 26619,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -63,9 +63,39 @@
             "exited": false
         },
         {
+            "deviceId": "b221d897",
+            "name": "com.DefaultCompany.PrimitivesJump",
+            "processId": 25592,
+            "exited": false
+        },
+        {
+            "deviceId": "b221d897",
+            "name": "com.DefaultCompany.PrimitivesJump",
+            "processId": 26619,
+            "exited": false
+        },
+        {
             "deviceId": "P1761959934",
             "name": "com.DefaultCompany.PrimitivesJump",
             "processId": 14834,
+            "exited": true
+        },
+        {
+            "deviceId": "P1761959934",
+            "name": "com.DefaultCompany.PrimitivesJump",
+            "processId": 24208,
+            "exited": true
+        },
+        {
+            "deviceId": "P1761959934",
+            "name": "com.android.launcher3",
+            "processId": 1563,
+            "exited": false
+        },
+        {
+            "deviceId": "P1761959934",
+            "name": "com.DefaultCompany.PrimitivesJump",
+            "processId": 25049,
             "exited": false
         }
     ],
