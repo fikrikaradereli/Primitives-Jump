@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
 {
     public GameState CurrentGameState { get; private set; }
     public Level CurrentLevel { get; private set; }
+    public int TotalScore { get; private set; }
 
     private List<Level> levels;
     private int score;
@@ -23,14 +24,16 @@ public class GameManager : Singleton<GameManager>
 
         levels = new List<Level>()
         {
-            new Level("Level 1", 1),
-            new Level("Level 2", 2),
-            new Level("Level 3", 3)
+            new Level("Level 1", 1)
+            //,
+            //new Level("Level 2", 2),
+            //new Level("Level 3", 3)
         };
 
         UpdateState(GameState.RUNNING);
 
         score = 0;
+        TotalScore = 0;
 
         int currentLevelIndex = PlayerPrefs.GetInt(PLAYER_PREFS_CURRENT_LEVEL_INDEX, -1);
 
@@ -72,6 +75,7 @@ public class GameManager : Singleton<GameManager>
     private void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
+        TotalScore = score;
         ScoreChange?.Invoke(score); // Event
     }
 
@@ -81,7 +85,6 @@ public class GameManager : Singleton<GameManager>
         if (levels.IndexOf(CurrentLevel) == levels.Count - 1)
         {
             UpdateState(GameState.END);
-            Debug.Log("THE END");
         }
         else
         {
@@ -98,6 +101,11 @@ public class GameManager : Singleton<GameManager>
     public void RestartLevel()
     {
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     //private void HandleSceneLoading(Scene scene, LoadSceneMode mode)

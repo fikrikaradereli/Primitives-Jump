@@ -23,16 +23,25 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private VictoryScreen victoryScreen;
 
+    [SerializeField]
+    private GameObject endingMenu;
+    [SerializeField]
+    private TextMeshProUGUI totalScoreText;
+    [SerializeField]
+    private Button quitButton;
+
     private void OnEnable()
     {
         GameManager.GameStateChange += HandleGameStateChange;
         GameManager.ScoreChange += HandleScoreChange;
+        VictoryScreen.VictoryEnd += HandleVictoryEnd;
     }
 
     private void OnDisable()
     {
         GameManager.GameStateChange -= HandleGameStateChange;
         GameManager.ScoreChange -= HandleScoreChange;
+        VictoryScreen.VictoryEnd -= HandleVictoryEnd;
     }
 
     private void HandleGameStateChange(GameState state)
@@ -52,7 +61,7 @@ public class UIManager : Singleton<UIManager>
                 FailMenu();
                 break;
             case GameState.END:
-                EndScreen();
+                VictoryScreenAnim();
                 break;
             default:
                 break;
@@ -78,14 +87,30 @@ public class UIManager : Singleton<UIManager>
         failedButton.gameObject.SetActive(true);
     }
 
-    private void EndScreen()
+    private void VictoryScreenAnim()
     {
         victoryScreen.gameObject.SetActive(true);
     }
 
-    // Button click
+    private void HandleVictoryEnd()
+    {
+        endingMenu.transform.localScale = Vector2.zero;
+        totalScoreText.text = "Total Score: " + GameManager.Instance.TotalScore;
+        endingMenu.SetActive(true);
+        endingMenu.LeanScale(Vector2.one, 0.7f).setEaseOutQuad().delay = 0.2f;
+    }
+
+    #region Button Clicks
+
     public void Restart()
     {
         GameManager.Instance.RestartLevel();
     }
+
+    public void Quit()
+    {
+        GameManager.Instance.QuitGame();
+    }
+
+    #endregion
 }

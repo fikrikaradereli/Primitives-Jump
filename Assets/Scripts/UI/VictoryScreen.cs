@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class VictoryScreen : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class VictoryScreen : MonoBehaviour
     private readonly float delay = 0.1f;
 
     private readonly float victoryScreenClosingTime = 3f;
+
+    public static event Action VictoryEnd;
 
     private void OnEnable()
     {
@@ -51,5 +54,6 @@ public class VictoryScreen : MonoBehaviour
     private void OnClosingComplete()
     {
         gameObject.SetActive(false);
+        VictoryEnd?.Invoke();
     }
 }
