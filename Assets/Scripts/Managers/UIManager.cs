@@ -13,6 +13,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private TextMeshProUGUI menuTitle;
     [SerializeField]
+    private TextMeshProUGUI menuScreenTotalScoreText;
+    [SerializeField]
     private Button successfulButton;
     [SerializeField]
     private Button failedButton;
@@ -26,7 +28,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private GameObject endingMenu;
     [SerializeField]
-    private TextMeshProUGUI totalScoreText;
+    private TextMeshProUGUI endingMenuTotalScoreText;
     [SerializeField]
     private Button quitButton;
 
@@ -76,6 +78,8 @@ public class UIManager : Singleton<UIManager>
     private void SuccessMenu()
     {
         menuTitle.text = "Successful";
+        menuScreenTotalScoreText.gameObject.SetActive(true);
+        menuScreenTotalScoreText.text = "Total Score: " + GameManager.Instance.TotalScore;
         successfulButton.gameObject.SetActive(true);
         failedButton.gameObject.SetActive(false);
     }
@@ -83,6 +87,7 @@ public class UIManager : Singleton<UIManager>
     private void FailMenu()
     {
         menuTitle.text = "Game Over";
+        menuScreenTotalScoreText.gameObject.SetActive(false);
         successfulButton.gameObject.SetActive(false);
         failedButton.gameObject.SetActive(true);
     }
@@ -95,7 +100,7 @@ public class UIManager : Singleton<UIManager>
     private void HandleVictoryEnd()
     {
         endingMenu.transform.localScale = Vector2.zero;
-        totalScoreText.text = "Total Score: " + GameManager.Instance.TotalScore;
+        endingMenuTotalScoreText.text = "Total Score: " + GameManager.Instance.TotalScore;
         endingMenu.SetActive(true);
         endingMenu.LeanScale(Vector2.one, 0.7f).setEaseOutQuad().delay = 0.2f;
     }

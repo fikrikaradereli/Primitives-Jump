@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     public static event Action<GameState> GameStateChange;
 
     private const string PLAYER_PREFS_CURRENT_LEVEL_INDEX = "CurrentLevel";
+    private const string PLAYER_PREFS_TOTAL_SCORE = "TotalScore";
 
     protected override void Awake()
     {
@@ -24,10 +25,9 @@ public class GameManager : Singleton<GameManager>
 
         levels = new List<Level>()
         {
-            new Level("Level 1", 1)
-            ////,
-            ////new Level("Level 2", 2),
-            ////new Level("Level 3", 3)
+            new Level("Level 1", 1),
+            new Level("Level 2", 2),
+            new Level("Level 3", 3)
             
             //new Level("Level 1",7),
             //new Level("Level 2",11),
@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
         UpdateState(GameState.RUNNING);
 
         score = 0;
-        TotalScore = 0;
+        TotalScore = PlayerPrefs.GetInt(PLAYER_PREFS_TOTAL_SCORE, 0);
 
         int currentLevelIndex = PlayerPrefs.GetInt(PLAYER_PREFS_CURRENT_LEVEL_INDEX, -1);
 
@@ -83,12 +83,14 @@ public class GameManager : Singleton<GameManager>
     private void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        TotalScore = score;
         ScoreChange?.Invoke(score); // Event
     }
 
     private void LevelPassed()
     {
+        TotalScore += score;
+        PlayerPrefs.SetInt(PLAYER_PREFS_TOTAL_SCORE, TotalScore); // add current score to total score
+
         // Check whether it is the last level.
         if (levels.IndexOf(CurrentLevel) == levels.Count - 1)
         {
@@ -113,6 +115,7 @@ public class GameManager : Singleton<GameManager>
 
     public void QuitGame()
     {
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
 
