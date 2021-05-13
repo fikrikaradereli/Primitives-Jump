@@ -21,6 +21,8 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField]
     private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private TextMeshProUGUI levelText;
 
     [SerializeField]
     private VictoryScreen victoryScreen;
@@ -31,6 +33,11 @@ public class UIManager : Singleton<UIManager>
     private TextMeshProUGUI endingMenuTotalScoreText;
     [SerializeField]
     private Button quitButton;
+
+    private void Start()
+    {
+        levelText.text = GameManager.Instance.CurrentLevel.Name;
+    }
 
     private void OnEnable()
     {

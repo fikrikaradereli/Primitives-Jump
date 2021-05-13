@@ -115,7 +115,7 @@ public class GameManager : Singleton<GameManager>
 
     public void QuitGame()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         Application.Quit();
     }
 
