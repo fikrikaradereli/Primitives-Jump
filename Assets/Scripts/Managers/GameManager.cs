@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     private const string PLAYER_PREFS_CURRENT_LEVEL_INDEX = "CurrentLevel";
     private const string PLAYER_PREFS_TOTAL_SCORE = "TotalScore";
+    private const string PLAYER_PREFS_TAP_TO_PLAY = "TapToPlay";
 
     protected override void Awake()
     {
@@ -38,7 +39,20 @@ public class GameManager : Singleton<GameManager>
             //new Level("Level 7",31)
         };
 
-        UpdateState(GameState.RUNNING);
+        string tapToPlay = PlayerPrefs.GetString(PLAYER_PREFS_TAP_TO_PLAY, "t");
+
+        switch (tapToPlay)
+        {
+            case "t":
+                UpdateState(GameState.PREGAME);
+                PlayerPrefs.SetString(PLAYER_PREFS_TAP_TO_PLAY, "f");
+                break;
+            case "f":
+                UpdateState(GameState.RUNNING);
+                break;
+            default:
+                break;
+        }
 
         score = 0;
         TotalScore = PlayerPrefs.GetInt(PLAYER_PREFS_TOTAL_SCORE, 0);
@@ -108,6 +122,11 @@ public class GameManager : Singleton<GameManager>
         UpdateState(GameState.FAILED);
     }
 
+    public void StartGame()
+    {
+        UpdateState(GameState.RUNNING);
+    }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene("GameScene");
@@ -117,6 +136,12 @@ public class GameManager : Singleton<GameManager>
     {
         //PlayerPrefs.DeleteAll();
         Application.Quit();
+    }
+
+    private void OnApplicationQuit()
+    {
+        // Sets tap to play to true before quit game
+        PlayerPrefs.SetString(PLAYER_PREFS_TAP_TO_PLAY, "t");
     }
 
     //private void HandleSceneLoading(Scene scene, LoadSceneMode mode)

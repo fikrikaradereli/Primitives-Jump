@@ -8,6 +8,9 @@ using TMPro;
 public class UIManager : Singleton<UIManager>
 {
     [SerializeField]
+    private CanvasGroup tapToPlay;
+
+    [SerializeField]
     private GameObject menuScreen;
 
     [SerializeField]
@@ -37,6 +40,8 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         levelText.text = GameManager.Instance.CurrentLevel.Name;
+        tapToPlay.alpha = 0;
+        StartCoroutine(TapToPlayAnim());
     }
 
     private void OnEnable()
@@ -51,6 +56,25 @@ public class UIManager : Singleton<UIManager>
         GameManager.GameStateChange -= HandleGameStateChange;
         GameManager.ScoreChange -= HandleScoreChange;
         VictoryScreen.VictoryEnd -= HandleVictoryEnd;
+    }
+
+    private void Update()
+    {
+        // Handles pregame tap to play
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && GameManager.Instance.CurrentGameState == GameState.PREGAME)
+            {
+                GameManager.Instance.StartGame();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && GameManager.Instance.CurrentGameState == GameState.PREGAME)
+            {
+                GameManager.Instance.StartGame();
+            }
+        }
     }
 
     private void HandleGameStateChange(GameState state)
@@ -110,6 +134,17 @@ public class UIManager : Singleton<UIManager>
         endingMenuTotalScoreText.text = "Total Score: " + GameManager.Instance.TotalScore;
         endingMenu.SetActive(true);
         endingMenu.LeanScale(Vector2.one, 0.7f).setEaseOutQuad().delay = 0.2f;
+    }
+
+    private IEnumerator TapToPlayAnim()
+    {
+        while (GameManager.Instance.CurrentGameState == GameState.PREGAME)
+        {
+            tapToPlay.LeanAlpha(1f, 1.5f);
+            yield return new WaitForSeconds(1.5f);
+            tapToPlay.LeanAlpha(0, 1.5f);
+            yield return new WaitForSeconds(1.5f);
+        }
     }
 
     #region Button Clicks

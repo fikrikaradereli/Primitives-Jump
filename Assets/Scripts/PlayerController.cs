@@ -14,15 +14,23 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
-        // For mobile input
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && isOnGround && GameManager.Instance.CurrentGameState == GameState.RUNNING)
-
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && GameManager.Instance.CurrentGameState == GameState.RUNNING)
+        if (Application.platform == RuntimePlatform.Android)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && isOnGround && GameManager.Instance.CurrentGameState == GameState.RUNNING)
+            {
+                playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isOnGround = false;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround && GameManager.Instance.CurrentGameState == GameState.RUNNING)
+            {
+                playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isOnGround = false;
+            }
         }
     }
 
