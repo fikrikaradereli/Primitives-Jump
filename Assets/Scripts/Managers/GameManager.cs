@@ -28,7 +28,9 @@ public class GameManager : Singleton<GameManager>
         {
             new Level("Level 1", 1),
             new Level("Level 2", 2),
-            new Level("Level 3", 3)
+            new Level("Level 3", 3),
+            new Level("Level 4", 4),
+            new Level("Level 5", 30)
             
             //new Level("Level 1",7),
             //new Level("Level 2",11),

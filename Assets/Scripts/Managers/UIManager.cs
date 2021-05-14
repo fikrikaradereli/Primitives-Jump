@@ -37,8 +37,14 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private Button quitButton;
 
+    [SerializeField]
+    private Material[] skyboxes;
+
     private void Start()
     {
+        int randomIndex = UnityEngine.Random.Range(0, skyboxes.Length);
+        RenderSettings.skybox = skyboxes[randomIndex];
+
         levelText.text = GameManager.Instance.CurrentLevel.Name;
         tapToPlay.alpha = 0;
         StartCoroutine(TapToPlayAnim());
