@@ -135,7 +135,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: d4d0525f42d9c11f8b7ea6633700eb7a
+      Hash: e35e372f9a1a036b2d254a6eec96baff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager

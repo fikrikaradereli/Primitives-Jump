@@ -144,6 +144,19 @@ public class GameManager : Singleton<GameManager>
         PlayerPrefs.SetString(PLAYER_PREFS_TAP_TO_PLAY, "t");
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            PlayerPrefs.SetString(PLAYER_PREFS_TAP_TO_PLAY, "t");
+        }
+        else
+        {
+            PlayerPrefs.SetString(PLAYER_PREFS_TAP_TO_PLAY, "f");
+
+        }
+    }
+
     //private void HandleSceneLoading(Scene scene, LoadSceneMode mode)
     //{
     //}
