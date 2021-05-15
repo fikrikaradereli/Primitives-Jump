@@ -115,6 +115,8 @@ public class UIManager : Singleton<UIManager>
         menuScreenTotalScoreText.text = "Total Score: " + GameManager.Instance.TotalScore;
         successfulButton.gameObject.SetActive(true);
         failedButton.gameObject.SetActive(false);
+
+        AudioManager.Instance.PlaySuccessSound();
     }
 
     private void FailMenu()
@@ -123,6 +125,8 @@ public class UIManager : Singleton<UIManager>
         menuScreenTotalScoreText.gameObject.SetActive(false);
         successfulButton.gameObject.SetActive(false);
         failedButton.gameObject.SetActive(true);
+
+        AudioManager.Instance.PlayLoseSound();
     }
 
     private void VictoryScreenAnim()

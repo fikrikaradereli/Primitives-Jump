@@ -1,14 +1,18 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AudioManager
     - CFX_AutoDestructShuriken
     - CameraController
     - EnemyController
     - GameManager
+    - Level
     - PlayerController
     - Spawner
     - UIManager
     - VictoryScreen
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -58,6 +62,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -65,43 +73,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1546}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 1556}
+      Script: {instanceID: 1552}
     - Class: 114
-      Script: {instanceID: 1664}
+      Script: {instanceID: 1660}
     - Class: 114
-      Script: {instanceID: 1938}
+      Script: {instanceID: 1934}
     - Class: 114
-      Script: {instanceID: 2378}
+      Script: {instanceID: 2374}
     - Class: 114
-      Script: {instanceID: 2500}
+      Script: {instanceID: 2496}
     - Class: 114
-      Script: {instanceID: 2552}
+      Script: {instanceID: 2548}
     - Class: 114
-      Script: {instanceID: 2758}
+      Script: {instanceID: 2754}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 2928}
+      Script: {instanceID: 2924}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3064}
     - Class: 114
-      Script: {instanceID: 3146}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 3158}
+      Script: {instanceID: 3144}
     - Class: 114
-      Script: {instanceID: 3346}
+      Script: {instanceID: 3156}
+    - Class: 114
+      Script: {instanceID: 3344}
+    - Class: 114
+      Script: {instanceID: 3376}
     - Class: 114
       Script: {instanceID: 3378}
     - Class: 114
-      Script: {instanceID: 3380}
+      Script: {instanceID: 3560}
     - Class: 114
-      Script: {instanceID: 3562}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3748}
+      Script: {instanceID: 3746}
     - Class: 114
-      Script: {instanceID: 3914}
+      Script: {instanceID: 3912}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -133,7 +145,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 04ffcc8c360d68750b50990b72975e20
+      Hash: e35e372f9a1a036b2d254a6eec96baff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -439,6 +451,12 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
+      Hash: 52bced62dd8eda43cd4df8d36744adfe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioManager
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -541,10 +559,16 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: dc82ad1fe8a068fdd6e2ff7b6e541820
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
+  - hash:
+      serializedVersion: 2
+      Hash: 7c0a4a4097445d49aa60dd3959ca3080
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Level
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -617,30 +641,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
-  - hash:
-      serializedVersion: 2
-      Hash: c6d94e38a727101dd467b56d57d9c12f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SmoothMouseLook
-  - hash:
-      serializedVersion: 2
-      Hash: 5111780fd6e841a48fa1fc53d36de3e6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SkyboxRotator
-  - hash:
-      serializedVersion: 2
-      Hash: 2d143e103df2247787ec7ae04cb6eb28
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FPSWalkerEnhanced
-  - hash:
-      serializedVersion: 2
-      Hash: f9a3fa795fdc45b44f33cc2a28c5a2ca
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SkyboxChanger
   platform: 13
   scenePathNames:
   - Assets/Scenes/GameScene.unity

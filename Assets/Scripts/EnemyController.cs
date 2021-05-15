@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour
                 if (Speed != 0)
                 {
                     Speed = 0;
+                    AudioManager.Instance.PlayJumpSound();
 
                     if (ScoreAdd != null)
                     {

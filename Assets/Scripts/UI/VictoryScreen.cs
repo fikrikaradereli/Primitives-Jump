@@ -27,6 +27,8 @@ public class VictoryScreen : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.Instance.PlayVictorySound();
+
         background.alpha = 0;
         background.LeanAlpha(0.99f, backgroundOpeningTime);
 
