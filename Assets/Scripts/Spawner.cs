@@ -8,11 +8,10 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject enemy;
 
-    private GameObject lastEnemy;
+    private EnemyController lastEnemy;
     private int enemyCount = 0;
 
     public static event Action LevelSuccessful;
-
 
     private readonly Vector3[] spawnPositions = { new Vector3(7f, 0.5f, 0), new Vector3(-7f, 0.5f, 0) };
 
@@ -29,15 +28,27 @@ public class Spawner : MonoBehaviour
             int randomIndex = UnityEngine.Random.Range(0, spawnPositions.Length);
             Vector3 spawnPos = spawnPositions[randomIndex] + new Vector3(0, enemyCount, 0);
 
-            lastEnemy = Instantiate(enemy, spawnPos, Quaternion.identity);
-            lastEnemy.GetComponent<MeshRenderer>().material.color = GameManager.Instance.CurrentLevel.EnemyColor;
+            lastEnemy = Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<EnemyController>();
+            //lastEnemy.GetComponent<MeshRenderer>().material.color = GameManager.Instance.CurrentLevel.EnemyColor;
 
             enemyCount++;
+
+            if (enemyCount > (GameManager.Instance.CurrentLevel.EnemyNumber / 2))
+            {
+                float minSpeed = GameManager.Instance.CurrentLevel.minEnemySpeed;
+                float maxSpeed = GameManager.Instance.CurrentLevel.maxEnemySpeed;
+
+                lastEnemy.speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
+            }
+            else
+            {
+                lastEnemy.speed = GameManager.Instance.CurrentLevel.minEnemySpeed;
+            }
         }
 
         if (enemyCount == GameManager.Instance.CurrentLevel.EnemyNumber)
         {
-            if (lastEnemy.GetComponent<EnemyController>().Speed == 0)
+            if (lastEnemy.speed == 0)
             {
                 LevelSuccessful?.Invoke();
                 CancelInvoke(nameof(SpawnEnemy));

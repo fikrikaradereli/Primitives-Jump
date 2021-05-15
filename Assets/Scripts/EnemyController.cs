@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     private enum EnemyType { Left, Right }
     private EnemyType enemyType;
 
-    public float Speed { get; private set; } = 5f;
+    public float speed;
     private readonly float heightDifference = 0.95f;
     private readonly float startingPos = 6f;
     private readonly float force = 10f;
@@ -34,12 +34,12 @@ public class EnemyController : MonoBehaviour
     {
         if (enemyType == EnemyType.Right)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * Speed);
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
         }
 
         if (enemyType == EnemyType.Left)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * Speed);
+            transform.Translate(Vector3.right * Time.deltaTime * speed);
         }
     }
 
@@ -50,9 +50,9 @@ public class EnemyController : MonoBehaviour
             if ((collision.gameObject.transform.position.y - transform.position.y) > heightDifference)
             {
                 // Enemy durmuþsa yeniden skor eklemeyi önler.
-                if (Speed != 0)
+                if (speed != 0)
                 {
-                    Speed = 0;
+                    speed = 0;
                     AudioManager.Instance.PlayJumpSound();
 
                     if (ScoreAdd != null)

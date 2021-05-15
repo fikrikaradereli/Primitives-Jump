@@ -139,7 +139,6 @@ public class GameManager : Singleton<GameManager>
         else
         {
             PlayerPrefs.SetString(PLAYER_PREFS_TAP_TO_PLAY, "f");
-
         }
     }
 

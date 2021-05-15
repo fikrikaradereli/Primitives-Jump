@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Level 4
   Skybox: {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}
-  EnemyNumber: 1
-  EnemyColor: {r: 0.019607844, g: 0.5921569, b: 0.9490196, a: 0}
+  EnemyNumber: 13
+  minEnemySpeed: 6.5
+  maxEnemySpeed: 7

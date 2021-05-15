@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "b221d897",
         "name": "com.DefaultCompany.PrimitivesJump",
-        "processId": 32535,
+        "processId": 18073,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -144,6 +144,12 @@
             "deviceId": "b221d897",
             "name": "com.DefaultCompany.PrimitivesJump",
             "processId": 32535,
+            "exited": false
+        },
+        {
+            "deviceId": "b221d897",
+            "name": "com.DefaultCompany.PrimitivesJump",
+            "processId": 18073,
             "exited": false
         },
         {

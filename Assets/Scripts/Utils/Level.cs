@@ -6,5 +6,10 @@ public class Level : ScriptableObject
     public string Name;
     public Material Skybox;
     public int EnemyNumber;
-    public Color EnemyColor;
+    //public Color EnemyColor;
+
+    [Space]
+    [Space]
+    public float minEnemySpeed;
+    public float maxEnemySpeed;
 }
