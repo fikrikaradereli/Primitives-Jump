@@ -30,6 +30,7 @@ public class Spawner : MonoBehaviour
             Vector3 spawnPos = spawnPositions[randomIndex] + new Vector3(0, enemyCount, 0);
 
             lastEnemy = Instantiate(enemy, spawnPos, Quaternion.identity);
+            lastEnemy.GetComponent<MeshRenderer>().material.color = GameManager.Instance.CurrentLevel.EnemyColor;
 
             enemyCount++;
         }

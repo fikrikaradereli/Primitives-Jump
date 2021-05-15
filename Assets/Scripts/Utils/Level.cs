@@ -1,11 +1,10 @@
-public class Level
-{
-    public string Name { get; private set; }
-    public int EnemyNumber { get; private set; }
+using UnityEngine;
 
-    public Level(string name, int enemyNumber)
-    {
-        Name = name;
-        EnemyNumber = enemyNumber;
-    }
+[CreateAssetMenu(menuName = "Custom/Level")]
+public class Level : ScriptableObject
+{
+    public string Name;
+    public Material Skybox;
+    public int EnemyNumber;
+    public Color EnemyColor;
 }

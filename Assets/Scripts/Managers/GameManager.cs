@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     public Level CurrentLevel { get; private set; }
     public int TotalScore { get; private set; }
 
+    [SerializeField]
     private List<Level> levels;
     private int score;
 
@@ -23,23 +24,6 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-
-        levels = new List<Level>()
-        {
-            new Level("Level 1", 1),
-            new Level("Level 2", 2),
-            new Level("Level 3", 3),
-            new Level("Level 4", 4),
-            new Level("Level 5", 30)
-            
-            //new Level("Level 1",7),
-            //new Level("Level 2",11),
-            //new Level("Level 3",15),
-            //new Level("Level 4",19),
-            //new Level("Level 5",23),
-            //new Level("Level 6",27),
-            //new Level("Level 7",31)
-        };
 
         string tapToPlay = PlayerPrefs.GetString(PLAYER_PREFS_TAP_TO_PLAY, "t");
 
